@@ -17,3 +17,9 @@ docker image ls
 docker container ls
 docker container ls --all
 docker container ls -aq
+
+## Key Docker Client Commands
+docker pull [image name]
+docker run [image name]
+docker images
+docker ps

@@ -18,6 +18,14 @@ docker container ls
 docker container ls --all
 docker container ls -aq
 
+## Key Docker machine Commands (used with Docker Toolbox)
+docker-machine ls
+docker-machine start [mn]
+docker-machine stop [mn]
+docker-machine env
+docker-machine ip
+docker-machine status
+
 ## Key Docker Client Commands
 docker pull [image name]
 docker run [image name]

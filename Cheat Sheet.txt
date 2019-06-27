@@ -34,4 +34,5 @@ docker ps
 docker rmi [image name]
 
 #Volumes
+docker run -p 8080:3000 -v /var/www node
 docker inspect [mycontainer]

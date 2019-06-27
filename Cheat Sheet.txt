@@ -32,3 +32,6 @@ docker run [image name]
 docker images
 docker ps
 docker rmi [image name]
+
+#Volumes
+docker inspect [mycontainer]

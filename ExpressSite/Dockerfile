@@ -8,10 +8,8 @@ ENV PORT=3000
 COPY . /foo
 WORKDIR /foo
 
-VOLUME ["/foo"]
-
 RUN npm install
 
-EXPOSE 3000
+EXPOSE $PORT
 
 ENTRYPOINT ["npm", "start"]

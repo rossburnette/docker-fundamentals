@@ -1,0 +1,8 @@
+﻿version: "3"
+services:
+    web:
+        build:
+          context: ./TaskManager.Api
+          dockerfile: ./Dockerfile
+        ports:
+            - "8000:80"

@@ -39,3 +39,4 @@ docker inspect [mycontainer]
 
 # Container Networks
 docker network create --driver bridge isolated_network
+docker run -d --net=isolated_network --name mongodb mongo

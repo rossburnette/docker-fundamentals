@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  initial.api:
-    image: ${DOCKER_REGISTRY-}initialapi
-    build:
-      context: .
-      dockerfile: Initial.Api/Dockerfile

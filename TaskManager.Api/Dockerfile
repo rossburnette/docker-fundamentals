@@ -1,9 +1,16 @@
-FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
-
-LABEL author="Jordan Jordanov"
-
-ENV DOTNET_USE_POLLING_FILE_WATCHER=1
-ENV ASPNETCORE_URLS=http://*:5000
-
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build-env
 WORKDIR /app
-CMD ["/bin/bash", "-c", "dotnet restore && dotnet run"]
+
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "TaskManager.Api.dll"]
